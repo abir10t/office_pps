@@ -18,6 +18,7 @@ class LoginScreen extends GetView<LoginLogic> {
     return BaseWidget(builder: (context, sizingInformation) {
       return SafeArea(
         child: Scaffold(
+
             backgroundColor: ColorConstants.backgroundPrimaryColor,
             body: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

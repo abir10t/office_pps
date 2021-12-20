@@ -24,7 +24,7 @@ class SplashScreenController extends GetxController {
 
      if (StoragePrefs.gs.hasData(StorageConstants.token.toString()))
       {
-         Get.offAllNamed(Routes.Drawer);
+         Get.offAllNamed(Routes.Dashboard);
          print('here if token is ${StoragePrefs.gs.read(StorageConstants.token.toString())}');
       }
 

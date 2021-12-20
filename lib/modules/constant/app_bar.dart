@@ -149,3 +149,11 @@ import 'style.dart';
 //     ),
 //   );
 // }
+
+AppBar DrawerAppbar ()
+{
+  return AppBar(
+    backgroundColor: ColorConstants.backgroundPrimaryColor,
+    elevation: 0,
+  );
+}

@@ -25,8 +25,8 @@ class LoginLogic extends GetxController
   TextEditingController password = new TextEditingController();
 
 
-  final GlobalKey<FormFieldState> emailFormKey = GlobalKey<FormFieldState>();
-  final GlobalKey<FormFieldState> passwordFormKey = GlobalKey<FormFieldState>();
+ GlobalKey<FormFieldState> emailFormKey = GlobalKey<FormFieldState>();
+   GlobalKey<FormFieldState> passwordFormKey = GlobalKey<FormFieldState>();
 
   AuthApiProvider provider = AuthApiProvider();
 
@@ -63,7 +63,7 @@ class LoginLogic extends GetxController
         debugPrint('one ${StoragePrefs.gs.read(StorageConstants.token.toString())}');
 
         await SnackBarProvider.showSnackBar(title: "Success",message: "Login Successful");
-        await Get.toNamed(Routes.Drawer);
+        await Get.toNamed(Routes.Dashboard);
       }
 
       else

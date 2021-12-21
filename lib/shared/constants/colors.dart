@@ -14,6 +14,7 @@ class ColorConstants
   static Color sectionPrimaryColor = hexToColor("#1B2E3F");
   static Color drawerTextColor = hexToColor("#C1DAFF");
   static Color sectionSecondaryColor = hexToColor("#263E53");
+  static Color primaryHeading = hexToColor("#B0C9EE");
 
 
 

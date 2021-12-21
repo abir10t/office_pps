@@ -268,8 +268,7 @@ class DashBoardPage extends GetView<DashBoardLogic> {
                         height: sectionSpacing / 2,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: rootContainerSpacing),
+                        padding: EdgeInsets.symmetric(horizontal: rootContainerSpacing),
                         child: Container(
                           height: 183,
                           decoration: const BoxDecoration(

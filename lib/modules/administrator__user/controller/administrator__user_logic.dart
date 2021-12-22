@@ -12,14 +12,27 @@ import 'package:pps/shared/widgets/snackbar/snackbar.dart';
 class Administrator_UserLogic extends GetxController
 {
 
-  var userData;
+  var userData = [].obs;
+
+  var oneRow = [].obs;
 
   AdministratorUserProvider userProvider = AdministratorUserProvider();
 
   @override
+  void onInit()
+  {
+
+    user();
+
+
+
+
+  }
+
+
   void onReady()
   {
-     user();
+
     // TODO: implement onReady
     super.onReady();
 
@@ -40,11 +53,36 @@ class Administrator_UserLogic extends GetxController
     {
        http.Response response = await userProvider.administrator();
        var data  = jsonDecode(response.body);
-       userData = data['data'];
+
        if( response.statusCode == 200 )
          {
+
+           userData.value = data['data'];
            print("..... Administrator_user logic is ...... ${userData}");
+           print("..............................................................................................");
+           print("here user data length is ${userData.length}");
+           for(int i=0; i<userData.length; i++)
+             {
+               oneRow.add([
+                 userData[i]["id"].toString(),
+                 userData[i]["name"].toString(),
+                 userData[i]["email"].toString(),
+                 userData[i]["roles"][0].toString(),
+                 userData[i]["image"].toString()
+
+               ]);
+
+
+
+             }
+              print(oneRow);
+
+
+
+           Loader.dismissLoading();
          }
+
+
     }
     on SocketException
     {

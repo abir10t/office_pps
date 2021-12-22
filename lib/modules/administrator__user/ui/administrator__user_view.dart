@@ -21,169 +21,55 @@ class Administrator_UserPage extends GetView<Administrator_UserLogic> {
         return SafeArea(
           child: Scaffold(
             appBar: DrawerAppbar(),
-           drawer: DrawerUi(),
+            drawer: DrawerUi(),
             backgroundColor: ColorConstants.backgroundPrimaryColor,
-            body: Column(
-              children: [
-                SizedBox(height: sectionSpacing*2,),
-                Table(
-                  border: TableBorder(
-                    horizontalInside: BorderSide(
-                      width: 2,
-                      color: ColorConstants.sectionSecondaryColor
-                    )
-                  ),
-                  children: [
-                    TableRow(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Text('${controller.userData[0]["id"].toString()  'ggg'}',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Text('Name',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Text('Email',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Text('Role',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Text('Image',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8),
-                          child: Text('Actions',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
+            body: Obx(() {
+              return ListView(
+                scrollDirection: Axis.vertical,
+                children: [
+                  SizedBox(height: sectionSpacing * 2,),
+                  DataTable(
+                    columns: [
+                      DataColumn(label: Text('User Id',style: TextStyle(color: Colors.white,fontSize: 8),),),
+                      DataColumn(label: Text('Name',style: TextStyle(color: Colors.white,fontSize: 8),),),
+                      DataColumn(label: Text('Email',style: TextStyle(color: Colors.white,fontSize: 8),),),
+                      DataColumn(label: Text('Role',style: TextStyle(color: Colors.white,fontSize: 8),),),
+                      DataColumn(label: Text('Image',style: TextStyle(color: Colors.white,fontSize: 8),),),
+                      DataColumn(label: Text('Actions',style: TextStyle(color: Colors.white,fontSize: 8),),)
+                    ],
+                    rows: controller.oneRow.map((e) {
+                       return DataRow(
+                         cells: <DataCell>[
+                           DataCell(Text('${e[0]}',maxLines: 2,)),
+                           DataCell(Text('${e[1]}',maxLines: 2,)),
+                           DataCell(Text('${e[2]}',maxLines: 2,)),
+                           DataCell(Text('${e[3]}',maxLines: 2,)),
+                           DataCell(Text('${e[4]}',maxLines: 2,)),
+                           DataCell(Column(
+                             children: [
+                               Icon(
+                                 FeatherIcons.bookOpen,
+                               ),
+                               SizedBox(height: 10,),
+                               Icon(
+                                 FeatherIcons.user,
+                               ),
+                               SizedBox(height: 10,),
+                               Icon(
+                                 FeatherIcons.lock,
+                               ),
 
-                      ]
-                    ),
-                    TableRow(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16,right: 8),
-                          child: Text('BG24566',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16,
+                             ],
+                           ))
+                         ]
+                       );
+                    }).toList()
+                  )
 
-                          ),maxLines: 2,),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Name',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Email',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Role',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Image',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Actions',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
+                ],
 
-                      ]
-                    ),
-                    TableRow(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: tableBottomPadding,top: tableTopPadding,right: tableRightPadding),
-                          child: Text('BG24566',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16,
-
-                          ),maxLines: 2,),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Name',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Email',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Role',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Image',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 8,top: 16),
-                          child: Text('Actions',style: sectionSubTitle().copyWith(
-                            color: ColorConstants.primaryHeading,
-                            fontSize: 16
-                          ),),
-                        ),
-
-                      ]
-                    ),
-
-                  ],
-                ),
-
-              ],
-
-            ),
+              );
+            }),
           ),
         );
       },
@@ -192,18 +78,4 @@ class Administrator_UserPage extends GetView<Administrator_UserLogic> {
 
 }
 
-Widget customTable ()
-{
-  return ListView.builder(
-    itemCount: 5,
-    itemBuilder: (context,index){
-      return  Padding(
-        padding: EdgeInsets.only(bottom: 8),
-        child: Text('User Id',style: sectionSubTitle().copyWith(
-            color: ColorConstants.primaryHeading,
-            fontSize: 16
-        ),),
-      );
-    },
-  );
-}
+

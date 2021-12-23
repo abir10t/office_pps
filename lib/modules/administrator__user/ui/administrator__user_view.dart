@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
@@ -24,50 +25,111 @@ class Administrator_UserPage extends GetView<Administrator_UserLogic> {
             drawer: DrawerUi(),
             backgroundColor: ColorConstants.backgroundPrimaryColor,
             body: Obx(() {
-              return ListView(
-                scrollDirection: Axis.vertical,
-                children: [
-                  SizedBox(height: sectionSpacing * 2,),
-                  DataTable(
+              return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: DataTable(
                     columns: [
-                      DataColumn(label: Text('User Id',style: TextStyle(color: Colors.white,fontSize: 8),),),
-                      DataColumn(label: Text('Name',style: TextStyle(color: Colors.white,fontSize: 8),),),
-                      DataColumn(label: Text('Email',style: TextStyle(color: Colors.white,fontSize: 8),),),
-                      DataColumn(label: Text('Role',style: TextStyle(color: Colors.white,fontSize: 8),),),
-                      DataColumn(label: Text('Image',style: TextStyle(color: Colors.white,fontSize: 8),),),
-                      DataColumn(label: Text('Actions',style: TextStyle(color: Colors.white,fontSize: 8),),)
+                      DataColumn(
+                        label: Text(
+                          'User Id',
+                          style: TextStyle(color: Colors.white, fontSize: 8),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Name',
+                          style: TextStyle(color: Colors.white, fontSize: 8),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Email',
+                          style: TextStyle(color: Colors.white, fontSize: 8),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Role',
+                          style: TextStyle(color: Colors.white, fontSize: 8),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Image',
+                          style: TextStyle(color: Colors.white, fontSize: 8),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Actions',
+                          style: TextStyle(color: Colors.white, fontSize: 8),
+                        ),
+                      )
                     ],
                     rows: controller.oneRow.map((e) {
-                       return DataRow(
-                         cells: <DataCell>[
-                           DataCell(Text('${e[0]}',maxLines: 2,)),
-                           DataCell(Text('${e[1]}',maxLines: 2,)),
-                           DataCell(Text('${e[2]}',maxLines: 2,)),
-                           DataCell(Text('${e[3]}',maxLines: 2,)),
-                           DataCell(Text('${e[4]}',maxLines: 2,)),
-                           DataCell(Column(
-                             children: [
-                               Icon(
-                                 FeatherIcons.bookOpen,
-                               ),
-                               SizedBox(height: 10,),
-                               Icon(
-                                 FeatherIcons.user,
-                               ),
-                               SizedBox(height: 10,),
-                               Icon(
-                                 FeatherIcons.lock,
-                               ),
-
-                             ],
-                           ))
-                         ]
-                       );
-                    }).toList()
-                  )
-
-                ],
-
+                      return DataRow(cells: <DataCell>[
+                        DataCell(Padding(
+                            padding: EdgeInsets.only(bottom: 70),
+                            child: Text(
+                              '${e[0]}',
+                              maxLines: 2,
+                            ),),),
+                        DataCell(Padding(
+                            padding: EdgeInsets.only(bottom: 70),
+                            child: Text(
+                              '${e[1]}',
+                              maxLines: 2,
+                            ),),),
+                        DataCell(Padding(
+                            padding: EdgeInsets.only(bottom: 70),
+                            child: Text(
+                              '${e[2]}',
+                              maxLines: 2,
+                            ))),
+                        DataCell(Padding(
+                            padding: EdgeInsets.only(bottom: 70),
+                            child: Text(
+                              '${e[3]}',
+                              maxLines: 2,
+                            ))),
+                        DataCell(
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 70),
+                            child: Text(
+                              '${e[4]}',
+                              maxLines: 2,
+                            ),
+                          ),
+                        ),
+                        DataCell(
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 70),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  FeatherIcons.bookOpen,
+                                  size: 5,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Icon(
+                                  FeatherIcons.user,
+                                  size: 5,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Icon(
+                                  FeatherIcons.lock,
+                                  size: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ]);
+                    }).toList()),
               );
             }),
           ),
@@ -75,7 +137,4 @@ class Administrator_UserPage extends GetView<Administrator_UserLogic> {
       },
     );
   }
-
 }
-
-

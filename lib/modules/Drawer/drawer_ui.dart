@@ -18,7 +18,7 @@ class _DrawerUiState extends State<DrawerUi> {
   var Administrator = [
     drawerItemWidget(title: 'Users', icon: 'assets/images/administrator_1.png',route: Routes.AdministratorUser),
     drawerItemWidget(title: 'Employee List', icon: 'assets/images/administrator_2.png'),
-    drawerItemWidget(title: 'Role Permission', icon: 'assets/images/administrator_3.png'),
+    drawerItemWidget(title: 'Role Permission', icon: 'assets/images/administrator_3.png', route: Routes.UserPermision),
     drawerItemWidget(title: 'Supplier List', icon: 'assets/images/administrator_4.png'),
     drawerItemWidget(title: 'Client List', icon: 'assets/images/administrator_5.png'),
     drawerItemWidget(title: 'Bank List', icon: 'assets/images/administrator_6.png'),

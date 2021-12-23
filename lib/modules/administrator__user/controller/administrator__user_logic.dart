@@ -21,21 +21,14 @@ class Administrator_UserLogic extends GetxController
   @override
   void onInit()
   {
-
     user();
-
-
-
-
   }
 
 
   void onReady()
   {
-
     // TODO: implement onReady
     super.onReady();
-
   }
 
   @override
@@ -69,16 +62,9 @@ class Administrator_UserLogic extends GetxController
                  userData[i]["email"].toString(),
                  userData[i]["roles"][0].toString(),
                  userData[i]["image"].toString()
-
                ]);
-
-
-
              }
               print(oneRow);
-
-
-
            Loader.dismissLoading();
          }
 
